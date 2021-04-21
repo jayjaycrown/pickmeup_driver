@@ -1,0 +1,103 @@
+<ion-content class="ion-no-padding">
+  <div class="header" style="text-align: right;">
+    <div style="margin: 10px 10px;">
+      <ion-button color="dark" fill="clear" [routerLink]="['/home']" routerLinkActive="router-link-active" >
+        <ion-icon
+          slot="icon-only"
+          size="large"
+          color="primary"
+          name="home"
+        ></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+  <div class="contents">
+    <div style="padding: 0 20px;">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item lines="none">
+              <ion-label>
+                <p>My Earnings</p>
+                <ion-button color="primary"  expand="full" size="large" (click)="onClick()">
+                  <ion-icon slot="start" name="wallet-outline"></ion-icon>
+                  {{ userdetails.walletBal | currency:'₦' }}
+                </ion-button>
+              </ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="midImg" (click)="selectImageSource()">
+      <input type="file"
+      #fileInput
+      (change)="uploadFile($event)"
+      hidden="true"
+      accept="image/*">
+      <img [src]="profilePic" alt="" srcset="" />
+    </div>
+
+    <div style="padding: 0 20px;">
+      <h2>Personal Information</h2>
+      <ion-item lines="none">
+        <ion-label>
+          <p>Name</p>
+          <!-- <h2>Jonathan Crown</h2> -->
+           <h2>{{ userdetails.lastName }} {{ userdetails.firstName }}</h2>
+          </ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>
+          <p>Email</p>
+          <h2>{{ userdetails.email }}</h2>
+          </ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>
+          <p>Phone Number</p>
+          <h2>{{ userdetails.phone }}</h2>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>
+          <p>Status</p>
+          <h2 *ngIf="isVerified === false">Pending Approval</h2>
+          <h2 *ngIf="isVerified === true">Approved</h2>
+        </ion-label>
+      </ion-item>
+      <br>
+      <div style="width: 100%; height:1px; border: 1px solid yellow"></div>
+      <br>
+      <h2>Account Settings</h2>
+      <ion-grid>
+        <ion-row>
+    
+          <ion-col *ngIf="isVerified === false">
+            <ion-button color="dark" fill="outline" shape="round" expand="block" (click)="createPin()">Upload Documents
+            </ion-button>
+          </ion-col>
+          <ion-col *ngIf="isVerified === true">
+            <ion-button color="dark" fill="outline" expand="block" shape="round" (click)="createPin()">Re-Upload
+              Documents
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" expand="block" shape="round" (click)="accSettings()">Edit Profile</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row style="margin: 0px -0px !important;">
+          <ion-col>
+            <ion-button color="medium" expand="block" shape="round" (click)="logout()">Log Out</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div style="text-align: center; margin-top: 7vh">
+    <h3>Copyright 2021</h3>
+  </div>
+  </div>
+  
+</ion-content>

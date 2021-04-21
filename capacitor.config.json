@@ -1,0 +1,21 @@
+{
+  "appId": "com.jayjaycrown.pickmeupDriver",
+  "appName": "Pick Me Up Driver",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    },
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_pickmeup_logo_bug",
+      "iconColor": "'#f9ed00",
+      "sound": "music.wav"
+    }
+  },
+  "cordova": {},
+  "server": {
+    "cleartext": true
+  }
+}

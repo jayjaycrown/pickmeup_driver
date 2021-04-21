@@ -1,0 +1,121 @@
+.header {
+  // background: url('../../assets/imgs/headerimg.png') 0 0/100% 100%;
+  background: url('../../assets/imgs/headerimg.png') 0 0/100% 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30vh !important;
+}
+ion-content {
+  --background: #ffffff !important;
+}
+
+.contents {
+  position: relative;
+  top: 10vh !important;
+  left: 0;
+  width: 100% !important;
+  background: #ffffff !important;
+  border-radius: 40px 40px 0 0;
+  padding: 30px 10px;
+}
+.text-right{
+  text-align: right;
+  
+}
+.logo{
+  width: 100% !important;
+  //border-radius: 50% !important;
+}
+.test{
+  padding: 0;
+  margin: 6px 6px 6px 0;
+  width: 60px !important;
+  height: 60px !important;
+  border: 1px solid #ffeb3b !important;
+  border-radius: 50% !important;
+}
+::slotted(ion-avatar) {
+    width: 50px;
+    height: 50px;
+}
+.h3 {
+  font-size: 18px !important;
+}
+// ion-icon {
+//   font-size: 60px;
+// }
+// ion-icon {
+//   color: #f9ed00;
+// }
+ion-card{
+  border-radius: 35px !important;
+}
+ion-card-content{
+  padding: 30px 20px;
+  text-align: center;
+  color: #0a0a0a;
+}
+ion-button.infoBtn {
+    // width: 50px;
+    // height: 50px;
+    // border-radius: 50%;
+    // background: #f9ed00;
+    // color: #000;
+    // text-align: center;
+    --border-radius: 50%;
+      --pading-start: 0;
+      --pading-end: 0;
+      --pading-top: 0;
+      --pading-bottom: 0;
+      --background: var(--ion-color-primary);
+        height: 50px !important;
+        width: 50px;
+
+        ion-icon {
+            font-size: 40px;
+        }
+}
+.wallet{
+    height: 50px;
+    background: #000;
+    border-radius: 40px;
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 70%;
+    color: #fff;
+}
+
+.midImg{
+    width: 20vh;
+    height: 20vh;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    background-color: #c5bfbf;
+    overflow: hidden;
+    margin: 10px auto;
+}
+.midImg img {
+    width: 100%;
+    height: 100% !important;
+}
+
+ion-list{
+    --background: transparent
+}
+ion-item {
+    margin-bottom: 10px !important;
+    // --background: #000;
+    // --border-color: rgba(0, 0, 0, 0.473);
+    // --border-radius: 0 30px 30px 30px !important;
+    // --border-width: 1px;
+}
+ion-input{
+    border-radius: 0 10px 10px 10px !important;
+}
+.testBtn{
+  background-color: var(--ion-color-primary) !important;
+  color: var(--ion-color-dark) !important;
+  opacity: .8 !important;
+}

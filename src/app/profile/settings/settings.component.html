@@ -1,0 +1,41 @@
+
+<ion-content>
+  <div class="header">
+    <ion-button (click)="onClick()" color="medium" >
+    <ion-icon slot="icon-only"  name="close-outline"></ion-icon>
+  </ion-button>
+</div><br>
+  <div class="contents">
+    <h3 class="pl-3">Personal Information Settings</h3>
+    <div style="margin: 0 30px;">
+      <form [formGroup]="profileEdit" (ngSubmit)="editProfile()">
+      <ion-item>
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input type="text" formControlName="firstName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input type="text" formControlName="lastName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" formControlName="email"  ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input type="tel" maxlength="12" formControlName="phone" ></ion-input>
+      </ion-item>
+      <ion-button size="small" color="danger" fill="clear" (click)="onChangePassword()">
+        Change Password
+      </ion-button>
+      
+      <br> 
+      <ion-button type="submit" expand="block" shape="round" [disabled]="!profileEdit.valid">
+        Submit
+      </ion-button>
+      </form>
+    </div>
+    <br><br><br><br>
+    
+  </div>
+</ion-content>

@@ -1,0 +1,37 @@
+[{
+        "name": "MainlandCentral Area (ZONE A)",
+        "areas": [
+            "Yaba,Ikeja , Somolu, Surulere, Berger, Gbagada, Ogudu, Ojota, Ketu, Fadeyi, Ojuelegba, Iyana Ipaja, Egbeda, Isolo, Oshodi, Mushin, Mafoluku, Ogba, Agege, Bariga, Iponri , Akowonjo, Alapere, Alimosho, Anthony , Dopemu , Ebute- Metta, Ifako-Ijaye, Ilupeju, Magodo, Omole, Olowoora, Maryland, Mile12, Oyingbo, Palm-groove"
+        ]
+    },
+    {
+        "name": "Mainland(ZONE B)",
+        "areas": [
+            "Okota,Idinmu, Ilasamaja, Ago Palace, Ipaja, Irawo, Abule Egba, Ejigbo, Festac, Ijegun, Ikotun, Iju-ishaga, Ayobo, Orile-Iganmu, Orile Agege, Mile2, Ikorodu Garage, Opic"
+        ]
+    },
+    {
+        "name": "Mainland(ZONE C)",
+        "areas": ["Agric,Laspotech, Ikorodu Igbogbo, Ikorodu Bayeku, Itamaga"]
+    },
+    {
+        "name": "Mainland(ZONE D)",
+        "areas": [
+            "Apapa,Ajegunle, Ojo, Alagbado, Ijaiye, Kirikiri, Meiran, Igando, Iyana iba, Alaba"
+        ]
+    },
+    {
+        "name": "Island(ZONE A)",
+        "areas": [
+            "Ikoyi,Victoria Island, Osborne, Lekki Phase1, Balogun, Idumota, Obalende, CMS"
+        ]
+    },
+    {
+        "name": "Island(ZONE B)",
+        "areas": ["Ajah,Sangotedo, Abraham Adesanya, Awoyaya"]
+    },
+    {
+        "name": "Island(ZONE C)",
+        "areas": ["'IbejuLekki'"]
+    }
+]

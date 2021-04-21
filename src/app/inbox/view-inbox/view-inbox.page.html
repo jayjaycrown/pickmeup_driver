@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>{{ messageHeader }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  fill="clear" (click)="dismiss()">
+        <ion-icon name="close-outline" slot="icon-only" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div *ngFor="let item of messageContent">
+    <p> {{ item }} </p>
+  </div>
+</ion-content>

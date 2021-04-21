@@ -1,0 +1,73 @@
+ion-content {
+    --background: url(../../assets/imgs/pmur2.png) 0px 0%/100% 100% no-repeat;
+
+    .logo {
+        width: 20vh;
+        height: 17vh;
+        margin-top: 5vh;
+        margin-bottom: -3vh;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        background: url(../../assets/imgs/Pickmeuplogo.png) 0px 0%/100% 100% no-repeat;
+    }
+    .headingText{
+        text-align: center;
+        color: var(--ion-color-primary, #fff);
+        margin: 4vh auto;
+    }
+
+    .contents {
+        background: #fff;
+        padding: 5vh;
+        height: 60%;
+        margin-top: -1px;
+    }
+    .forgot{
+        text-align: center;
+        margin-top: 20px;
+        color: red;
+    }
+}
+
+ion-segment {
+    width: 100%;
+}
+
+ion-segment-button {
+    --background: #f9ed00;
+    --background-checked: #fff;
+    --background-focused: #fff;
+    --color: #030303;
+    --color-checked: rgb(0, 0, 0);
+    --color-focused: #fff;
+    --border-radius: 30px 0 0 0;
+    --indicator-height: 0;
+    --margin-top: 20px;
+    --margin-bottom: 20px;
+    // font-size: 12px !important;
+    // --margin-start: 10px;
+    font-weight: bold;
+}
+
+ion-segment-button:nth-child(2) {
+    --border-radius: 0 30px 0 0 !important;
+    // --margin-start: 10px;
+}
+
+ion-item {
+    margin-bottom: 20px !important;
+    --background: rgb(207, 207, 207);
+    // --border-color: rgba(0, 0, 0, 0.473);
+    --border-radius: 30px !important;
+    --border-width: 1px;
+}
+
+.errors {
+    font-size: small;
+    color: #fff;
+    background: var(--ion-color-danger);
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

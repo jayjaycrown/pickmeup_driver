@@ -1,0 +1,90 @@
+
+<ion-content>
+  <div class="header">
+  <ion-button (click)="onClick()" color="medium" >
+    <ion-icon slot="icon-only"  name="close-outline"></ion-icon>
+  </ion-button>
+</div>
+<br>
+  <div class="contents" >
+
+    <div style="margin-bottom: 40px;">
+      <form [formGroup]="createPinForm" (ngSubmit)="onSubmit()">
+        <ion-list style="margin: 0 30px;">
+          <ion-list-header>
+            <h3>Upload Required Documents</h3>
+          </ion-list-header>
+          <br>
+          <ion-item>
+            <ion-label class="block">
+              <p>Valid Stage Carriage</p>
+              <ion-input type="file" name="stageCarriage" formControlName="stageCarriage" accept="image/*"
+                (change)="onFileSelect3($event)">
+              </ion-input>
+            </ion-label>
+
+
+          </ion-item>
+          <ion-item>
+            <ion-label class="block">
+              <p>Valid Riders Card</p>
+              <ion-input type="file" name="ridersCard" id="" formControlName="ridersCard" accept="image/*"
+                (change)="onFileSelect($event)"></ion-input>
+            </ion-label>
+
+          </ion-item>
+          <ion-item>
+            <ion-label class="block">
+              <p>Valid Vehicle License</p>
+              <ion-input type="file" name="vehicleLicense" id="" formControlName="vehicleLicense" accept="image/*"
+                (change)="onFileSelect2($event)">
+              </ion-input>
+            </ion-label>
+
+          </ion-item>
+          <br>
+          <div style="margin-bottom: 10vh;">
+            <ion-button type="submit" expand="block" shape="round" color="primary" [disabled]="!createPinForm.valid">
+              Submit
+            </ion-button>
+          </div>
+        </ion-list>
+      </form>
+    </div>
+  </div>
+
+
+
+  <!-- <div class="contents" *ngIf="pinStatus">
+    <h3 class="pl-3">Edit Transaction Pin</h3>
+    <br><br>
+    <form name="form" (ngSubmit)="editPin.form.valid && onSubmit()" #editPin="ngForm" >
+      <div style="margin: 0 30px;" >
+        <ion-item>
+          <ion-label position="floating">Old Pin</ion-label>
+          <ion-input type="tel" maxlength="4"
+          name="receiverName"
+          [(ngModel)]="model.oldPin" 
+          #oldPin="ngModel" 
+          [ngClass]="{ 'is-invalid': editPin.submitted && oldPin.invalid }" required
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">New Pin</ion-label>
+          <ion-input type="tel" maxlength="4"
+          name="receiverName"
+          [(ngModel)]="model.newPin" 
+          #newPin="ngModel" 
+          [ngClass]="{ 'is-invalid': editPin.submitted && newPin.invalid }" required
+          ></ion-input>
+        </ion-item>
+        
+        <br>
+        <ion-button type="submit" expand="block" color="primary" shape="round" [disabled]="!editPin.form.valid">
+          Submit
+        </ion-button>
+      </div>
+    </form>
+  </div> -->
+</ion-content>

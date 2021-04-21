@@ -1,0 +1,30 @@
+<ion-content>
+  <div class="logo">
+
+  </div>
+
+  <ion-card>
+    <ion-card-header color="primary">
+      <!-- <ion-card-title>Enter your email to reset password</ion-card-title> -->
+      <h5>Enter your email to reset password</h5>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="forgotForm" (ngSubmit)="verify()">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <!-- <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+            <span *ngIf="email.errors?.required">Email is required</span>
+            <span *ngIf="email.errors?.email">Email is invalid</span>
+          </div> -->
+        <ion-button type="submit" expand="block" shape="round" size="large" [disabled]="!forgotForm.valid">
+          Verify Email</ion-button>
+      </form>
+      <div class="forgot">
+          <ion-label [routerLink]="['/auth']">Back to Login</ion-label>
+        </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

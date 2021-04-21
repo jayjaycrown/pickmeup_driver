@@ -1,0 +1,7 @@
+{
+  "name": "PickMeUp Driver",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

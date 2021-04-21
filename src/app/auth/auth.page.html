@@ -1,0 +1,118 @@
+
+<ion-content>
+  <div class="logo">
+  </div>
+  <div class="headingText">
+    <h3>Driver App</h3>
+  </div>
+
+  <ion-segment 
+      [(ngModel)]="type" 
+      (ionChange)="segmentChanged($event)" 
+      scrollable 
+      mode="md"
+      value="signin">
+      <ion-segment-button value="signin" checked>
+        <ion-label>Sign in</ion-label>
+        <!-- <ion-icon name="cash"></ion-icon> -->
+      </ion-segment-button>
+      <ion-segment-button value="signup">
+        <ion-label>Sign up</ion-label>
+        <!-- <ion-icon name="log-out"></ion-icon> -->
+      </ion-segment-button>
+    </ion-segment>
+  <div class="contents">
+
+    <!-- <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p> -->
+
+    <div [ngSwitch]="type" class="testList">
+      <ion-list *ngSwitchCase="'signin'" >
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <ion-item>
+            <ion-label position="floating">Email Address</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+          <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+            <span *ngIf="email.errors?.required">Email is required</span>
+            <span *ngIf="email.errors?.email">Email is invalid</span>
+          </div>
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+            <span *ngIf="password.errors?.required">Password is required</span>
+            <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+          </div>
+          <ion-button type="submit" expand="block" shape="round" size="large" [disabled]="!loginForm.valid">Sign in</ion-button>
+        </form>
+        <div class="forgot">
+          <ion-label [routerLink]="['/auth/forgot']">Forgot Password?</ion-label>
+        </div>
+        
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'signup'" lines="none">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <div *ngIf="firstPage">
+          <ion-item>
+          <ion-label position="floating">First Name</ion-label>
+          <ion-input type="text" formControlName="firstName"></ion-input>
+          
+        </ion-item>
+        <!-- <div *ngIf="(firstName.dirty || firstName.touched) && email.errors" class="errors">
+            <span *ngIf="email.errors?.required">Email is required</span>
+            <span *ngIf="email.errors?.email">Email is invalid</span>
+          </div> -->
+        <ion-item>
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input type="text" formControlName="lastName"></ion-input>
+        </ion-item>
+        <ion-item>
+        <ion-label>Gender</ion-label>
+          <ion-select interface="action-sheet" formControlName="sex" placeholder="Select One">
+            <ion-select-option value="female">Female</ion-select-option>
+            <ion-select-option value="male">Male</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-button color="primary" type="button" expand="block" shape="round" size="large" (click)="changeState()">Proceed</ion-button>
+        </div>
+        <div *ngIf="secondPage">
+          <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Phone Number</ion-label>
+          <ion-input type="tel" formControlName="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">City</ion-label>
+          <ion-input type="text" formControlName="state"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <ion-button color="dark" type="button" expand="block" shape="round" size="large" (click)="changeState()">Back</ion-button>
+            </ion-col >
+            <ion-col size="6">
+              <ion-button type="submit" expand="block" shape="round" size="large" [disabled]="!registerForm.valid"color="primary" >Sign up</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        
+        </div>
+        </form>
+        
+        
+      </ion-list>
+    </div>
+  </div>
+
+  
+
+</ion-content>

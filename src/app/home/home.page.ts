@@ -129,7 +129,7 @@ export class HomePage implements OnInit {
       this.fetchAssignedDeliveries();
       this.fetchAcceptedOrders();
       this.fetchOrderHistories();
-    }, 30000);
+    }, 15000);
     const obj = { token: this.token.value };
     this.auth.getUserProfile(obj).subscribe(
       (res: any) => {

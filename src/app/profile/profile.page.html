@@ -29,14 +29,17 @@
         </ion-row>
       </ion-grid>
     </div>
-    <div class="midImg" (click)="selectImageSource()">
+    <div class="midImg">
+      <img [src]="profilePic" alt="" srcset="" />
+    </div>
+    <!-- <div class="midImg" (click)="selectImageSource()">
       <input type="file"
       #fileInput
       (change)="uploadFile($event)"
       hidden="true"
       accept="image/*">
       <img [src]="profilePic" alt="" srcset="" />
-    </div>
+    </div> -->
 
     <div style="padding: 0 20px;">
       <h2>Personal Information</h2>

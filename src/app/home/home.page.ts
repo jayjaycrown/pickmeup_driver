@@ -174,10 +174,10 @@ export class HomePage implements OnInit {
   }
 
   updateLocation() {
-    console.log(this.address);
+    // console.log(this.address);
     if (this.address !== '') {
         this.auth.updateRiderLocation(this.token.value, this.address).subscribe((res: any) => {
-        console.log(res);
+        // console.log(res);
       });
     }
   }

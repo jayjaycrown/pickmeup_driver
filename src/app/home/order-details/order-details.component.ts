@@ -46,6 +46,8 @@ export class OrderDetailsComponent implements OnInit {
   pickupState = '';
   dropoffArea = '';
   dropoffState = '';
+  address2: any;
+  dropoffInfo: any;
   constructor(
     private modalController: ModalController,
     private alertCtrl: AlertController,
@@ -86,12 +88,16 @@ export class OrderDetailsComponent implements OnInit {
   calculateAndDisplayRoute() {
 
     const address = `${this.pickupAddress}, ${this.pickupArea}, ${this.pickupState}`;
-    const address2 = `${this.dropoffAddress}, ${this.dropoffArea}, ${this.dropoffState}`;
+    if (this.dropoffAddress) {
+      this.address2 = `${this.dropoffAddress}, ${this.dropoffArea}, ${this.dropoffState}`;
+    } else {
+      this.address2 = `${this.dropoffInfo[0].address}, ${this.dropoffInfo[0].area}, ${this.dropoffState}`
+    }
     // alert(address)
     // alert(address2)
     this.directionsService.route({
       origin: address,
-      destination: address2,
+      destination: this.address2,
       travelMode: 'DRIVING'
     }, async (response, status) => {
       if (status === 'OK') {
@@ -100,7 +106,7 @@ export class OrderDetailsComponent implements OnInit {
        const alert = await this.alertCtrl.create({
           header: 'Failed to load map',
           mode: 'ios',
-          message: 'Directions request failed due to ' + status,
+          message: response.message,
           buttons: ['OK']
         });
 
@@ -123,6 +129,7 @@ export class OrderDetailsComponent implements OnInit {
           this.dropoffAddress = this.deliveries.dropoffAddress;
           this.dropoffArea = this.deliveries.dropoffArea;
           this.dropoffState = this.deliveries.dropoffState;
+          this.dropoffInfo = this.deliveries.dropoffInfo;
           this.showAddress();
           if (this.deliveries.status === 'Assigned') {
             this.pickedup = true;
@@ -157,6 +164,7 @@ export class OrderDetailsComponent implements OnInit {
           this.dropoffAddress = this.deliveriesHistories.dropoffAddress;
           this.dropoffArea = this.deliveriesHistories.dropoffArea;
           this.dropoffState = this.deliveriesHistories.dropoffState;
+          this.dropoffInfo = this.deliveriesHistories.dropoffInfo;
           this.showAddress();
           console.log(this.deliveries);
         } else {

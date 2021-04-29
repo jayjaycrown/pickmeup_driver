@@ -1,6 +1,6 @@
 {
-  "appId": "com.jayjaycrown.pickmeupDriver",
-  "appName": "Pick Me Up Driver",
+  "appId": "com.jayjaycrown.pickmeupRider",
+  "appName": "Pick Me Up Rider",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

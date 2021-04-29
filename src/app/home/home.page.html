@@ -2,24 +2,41 @@
   <div class="header" style="text-align: right;">
     <div style="margin: 15px 20px;">
       <form name="form" #available="ngForm">
-        <ion-toggle mode="ios" [checked]="status" color="primary" name="available" slot="end" #available="ngModel"
-          ngModel="available" (ngModelChange)="changeStatus(available.value)">
+        <ion-toggle
+          mode="ios"
+          [checked]="status"
+          color="primary"
+          name="available"
+          slot="end"
+          #available="ngModel"
+          ngModel="available"
+          (ngModelChange)="changeStatus(available.value)"
+        >
         </ion-toggle>
       </form>
     </div>
   </div>
   <div class="contents">
-
-    <ion-item [routerLink]="['/profile']" routerLinkActive="router-link-active" lines="none">
+    <ion-item
+      [routerLink]="['/profile']"
+      routerLinkActive="router-link-active"
+      lines="none"
+    >
       <ion-avatar slot="start">
-        <img class="logo" [src]="profilePic">
+        <img class="logo" [src]="profilePic" />
       </ion-avatar>
       <ion-label class="h3">
-        {{time }} <span class="nameTag">{{firstName}}</span></ion-label>
+        {{time }} <span class="nameTag">{{firstName}}</span></ion-label
+      >
     </ion-item>
 
-    <ion-segment color="warning" scrollable (ionChange)="segmentChanged($event)" value="assigned"
-      [(ngModel)]="segmentModel">
+    <ion-segment
+      color="warning"
+      scrollable
+      (ionChange)="segmentChanged($event)"
+      value="assigned"
+      [(ngModel)]="segmentModel"
+    >
       <ion-segment-button value="assigned">
         <ion-label>Assigned</ion-label>
       </ion-segment-button>
@@ -41,34 +58,41 @@
           <ion-item>
             <ion-label>
               <div class="item-head">
-                <span class="item-bold">Pick Up - 24 Jan, 2021</span>
+                <span class="item-bold">Pickup - {{ item.pickupTime | date }} </span>
                 <!-- <span class="delivery-info">
                   <span class="success">Successfull</span>
                 </span> -->
               </div>
-              <p class="address"> {{ item.pickupAddress }} </p>
-              <hr>
+              <p class="address">{{ item.pickupAddress }}</p>
+              <hr />
               <div class="item-head">
-                <span class="item-bold">Drop Off - 28 Jan, 2021</span>
+                <span class="item-bold">Dropoff - {{ item.dropoffTime | date }} </span>
               </div>
-              <p class="address"> {{ item.dropoffAddress }} </p>
+              <p class="address">{{ item.dropoffAddress || 'Multiple'}}</p>
             </ion-label>
           </ion-item>
           <ion-grid>
             <ion-row>
               <ion-col>
-                <ion-button color="danger" expand="full" (click)="declineRequestOrder(item.reference, item.type)">
+                <ion-button
+                  color="danger"
+                  expand="full"
+                  (click)="declineRequestOrder(item.reference, item.type)"
+                >
                   Decline
                 </ion-button>
               </ion-col>
               <ion-col>
-                <ion-button color="primary" expand="full" (click)="acceptRequestOrder(item.reference, item.type)">Accept
+                <ion-button
+                  color="primary"
+                  expand="full"
+                  (click)="acceptRequestOrder(item.reference, item.type)"
+                  >Accept
                 </ion-button>
               </ion-col>
             </ion-row>
           </ion-grid>
         </ion-card-content>
-
       </ion-card>
 
       <!-- <ion-card (click)="showDetails()">
@@ -102,28 +126,30 @@
     </ion-list>
 
     <ion-list lines="none" *ngIf="segmentModel === 'accepted'">
-     
-      <ion-card *ngFor="let item of acceptedDeliveries" (click)="showDetails(item.reference, 'accepted')">
+      <ion-card
+        *ngFor="let item of acceptedDeliveries"
+        (click)="showDetails(item.reference, 'accepted')"
+      >
         <ion-card-content>
-           <ion-item *ngIf="acceptedDeliveries.length <= 0">
-             <ion-label>
-               <p>No data available</p>
-             </ion-label>
-           </ion-item>
+          <ion-item *ngIf="acceptedDeliveries.length <= 0">
+            <ion-label>
+              <p>No data available</p>
+            </ion-label>
+          </ion-item>
           <ion-item>
             <ion-label>
               <div class="item-head">
-                <span class="item-bold">Pickup - 24 Jan, 2021</span>
+                <span class="item-bold">Pickup - {{ item.pickupTime | date }} </span>
                 <!-- <span class="delivery-info">
                   <span class="success">Successfull</span>
                 </span> -->
               </div>
-              <p class="address"> {{ item.pickupAddress }} </p>
-              <hr>
+              <p class="address">{{ item.pickupAddress }}</p>
+              <hr />
               <div class="item-head">
-                <span class="item-bold">Dropoff - 28 Jan, 2021</span>
+                <span class="item-bold">Dropoff - {{ item.dropoffTime | date }} </span>
               </div>
-              <p class="address"> {{ item.dropoffAddress }} </p>
+              <p class="address">{{ item.dropoffAddress || 'Multiple'}}</p>
             </ion-label>
           </ion-item>
           <ion-item>
@@ -136,43 +162,39 @@
               </div>
             </ion-label>
           </ion-item>
-         
-
-
         </ion-card-content>
-
       </ion-card>
     </ion-list>
 
     <ion-list lines="none" *ngIf="segmentModel === 'history'">
-      
-     <ion-card *ngFor="let item of deliveriesHistories" (click)="showDetails(item.reference, 'history')">
-       <ion-card-content>
-         <ion-item *ngIf="deliveriesHistories.length <= 0">
-           <ion-label>
-             <p>No data available</p>
-           </ion-label>
-         </ion-item>
-         <ion-item>
-           <ion-label>
-             <div class="item-head">
-               <span class="item-bold">Pickup - 24 Jan, 2021</span>
-               <!-- <span class="delivery-info">
+      <ion-card
+        *ngFor="let item of deliveriesHistories"
+        (click)="showDetails(item.reference, 'history')"
+      >
+        <ion-card-content>
+          <ion-item *ngIf="deliveriesHistories.length <= 0">
+            <ion-label>
+              <p>No data available</p>
+            </ion-label>
+          </ion-item>
+           <ion-item>
+            <ion-label>
+              <div class="item-head">
+                <span class="item-bold">Pickup - {{ item.pickupTime | date }} </span>
+                <!-- <span class="delivery-info">
                   <span class="success">Successfull</span>
                 </span> -->
-             </div>
-             <p class="address"> {{ item.pickupAddress }} </p>
-             <hr>
-             <div class="item-head">
-               <span class="item-bold">Dropoff - 28 Jan, 2021</span>
-             </div>
-             <p class="address"> {{ item.dropoffAddress }} </p>
-           </ion-label>
-         </ion-item>
-       </ion-card-content>
-
-     </ion-card>
+              </div>
+              <p class="address">{{ item.pickupAddress }}</p>
+              <hr />
+              <div class="item-head">
+                <span class="item-bold">Dropoff - {{ item.dropoffTime | date }} </span>
+              </div>
+              <p class="address">{{ item.dropoffAddress || 'Multiple'}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
     </ion-list>
   </div>
-  
 </ion-content>

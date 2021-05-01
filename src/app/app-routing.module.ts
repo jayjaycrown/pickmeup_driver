@@ -45,6 +45,11 @@ const routes: Routes = [
     loadChildren: () => import('./wallet-history/wallet-history.module').then(m => m.WalletHistoryPageModule),
     canLoad: [AuthGuard]
   },
+  {
+    path: 'privacy',
+    loadChildren: () => import('./privacy/privacy.module').then(m => m.PrivacyPageModule),
+    canLoad: [AuthGuard]
+  },
 ];
 
 @NgModule({

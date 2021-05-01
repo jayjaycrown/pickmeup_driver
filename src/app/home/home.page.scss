@@ -114,3 +114,8 @@ ion-toggle{
   font-weight: bold;
   text-transform: capitalize !important;
 }
+
+a{
+  text-decoration: none;
+  color: red($color: #000000);
+}

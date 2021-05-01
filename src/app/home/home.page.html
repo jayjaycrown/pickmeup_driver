@@ -1,5 +1,6 @@
-<ion-content class="ion-no-padding" [fullscreen]="true">
+<ion-content class="ion-no-padding" >
   <div class="header" style="text-align: right;">
+
     <div style="margin: 15px 20px;">
       <form name="form" #available="ngForm">
         <ion-toggle
@@ -198,3 +199,6 @@
     </ion-list>
   </div>
 </ion-content>
+<ion-footer class="ion-text-center">
+  <ion-button fill="clear" color="dark" expand="full" (click)="onClick()">Privacy Policy</ion-button>
+</ion-footer>

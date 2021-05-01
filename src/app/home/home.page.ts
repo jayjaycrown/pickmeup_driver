@@ -462,4 +462,8 @@ export class HomePage implements OnInit {
 //   // data: { secret: key }
 // });
   }
+
+  onClick() {
+    this.router.navigateByUrl('/privacy');
+  }
 }

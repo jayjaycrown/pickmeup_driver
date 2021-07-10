@@ -1,7 +1,5 @@
 <ion-content>
-  <div class="logo">
-
-  </div>
+  <div class="logo"></div>
 
   <ion-card>
     <ion-card-header color="primary">
@@ -18,13 +16,19 @@
             <span *ngIf="email.errors?.required">Email is required</span>
             <span *ngIf="email.errors?.email">Email is invalid</span>
           </div> -->
-        <ion-button type="submit" expand="block" shape="round" size="large" [disabled]="!forgotForm.valid">
-          Verify Email</ion-button>
+        <ion-button
+          type="submit"
+          expand="block"
+          shape="round"
+          size="large"
+          [disabled]="!forgotForm.valid"
+        >
+          Verify Email</ion-button
+        >
       </form>
       <div class="forgot">
-          <ion-label [routerLink]="['/auth']">Back to Login</ion-label>
-        </div>
+        <ion-label [routerLink]="['/auth']">Back to Login</ion-label>
+      </div>
     </ion-card-content>
   </ion-card>
-
 </ion-content>
